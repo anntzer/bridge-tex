@@ -1,0 +1,548 @@
+% \iffalse meta-comment
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+----------------------------------------------------------------
+bridge --- Typesetting bridge-related stuff
+E-mail: anntzer.lee(at)gmail.com
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+A package for typesetting bridge-related stuff.
+
+See bridge.pdf in the Downloads section for the documentation, with some
+examples.
+
+The package is supplied in dtx format.  Running "tex bridge.dtx" will extract
+the package.  To extract it and typeset the documentation, use
+pdflatex bridge.dtx
+makeindex -s gind.ist -o bridge.ind bridge.idx
+makeindex -s gglo.ist -o bridge.gls bridge.glo
+pdflatex bridge.dtx
+%</readme>
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+----------------------------------------------------------------
+bridge --- Typesetting bridge-related stuff
+E-mail: anntzer.lee(at)gmail.com
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2012 by Antony Lee <anntzer.lee(at)gmail.com>
+
+This work may be distributed and/or modified under the conditions of the LaTeX
+Project Public License (LPPL), either version 1.3c of this license or (at your
+option) any later version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by Antony Lee.
+
+This work consists of the file  bridge.dtx
+and the derived files           bridge.ins,
+                                bridge.pdf and
+                                bridge.sty.
+
+\endpostamble
+\usedir{tex/latex/bridge}
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/bridge}
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\usedir{doc/latex/bridge}
+\generate{
+  \file{README.txt}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+%<*package>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bridge}[2012/03/18 v0.1 Typesetting bridge-related stuff]
+%</package>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{\jobname}
+\usepackage[numbered]{hypdoc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+%\GetFileInfo{\jobname.sty}
+%
+%\makeatletter
+%
+%\lst@RequireAspects{writefile}
+%\newsavebox{\LaTeXdemo@box}
+%\lstnewenvironment{LaTeXdemo}[1][code and example]{^^A
+%  \global\let\lst@intname\@empty
+%  \expandafter\let\expandafter\LaTeXdemo@end
+%    \csname LaTeXdemo@#1@end\endcsname
+%  \@nameuse{LaTeXdemo@#1}^^A
+%}{^^A
+%  \LaTeXdemo@end
+%}
+%\newcommand*\LaTeXdemo@new[3]{^^A
+%  \expandafter\newcommand\expandafter*\expandafter
+%    {\csname LaTeXdemo@#1\endcsname}{#2}^^A
+%  \expandafter\newcommand\expandafter*\expandafter
+%    {\csname LaTeXdemo@#1@end\endcsname}{#3}^^A
+%}
+%\newcommand*\LaTeXdemo@common{^^A
+%  \setkeys{lst}{
+%    basicstyle   = \small\ttfamily,
+%    basewidth    = 0.51em,
+%    gobble       = 3,
+%    keywordstyle = \color{blue},
+%    language     = [LaTeX]{TeX},
+%    moretexcs    = {
+%      bridgeset,hand,board,alerts,auction,spade,heart,diamond,club
+%    }
+%  }^^A
+%}
+%\newcommand*\LaTeXdemo@input{^^A
+%  \MakePercentComment
+%  \catcode`\^^M=10\relax
+%  \small
+%  \begingroup
+%    \setkeys{lst}{
+%      SelectCharTable=\lst@ReplaceInput{\^\^I}{\lst@ProcessTabulator}
+%    }^^A
+%    \leavevmode
+%      \input{\jobname.tmp}^^A
+%  \endgroup
+%  \MakePercentIgnore
+%}
+%\LaTeXdemo@new{code and example}{^^A
+%  \setbox\LaTeXdemo@box=\hbox\bgroup
+%    \lst@BeginAlsoWriteFile{\jobname.tmp}^^A
+%    \LaTeXdemo@common
+%}{^^A
+%    \lst@EndWriteFile
+%  \egroup
+%  \begin{center}
+%    \ifdim\wd\LaTeXdemo@box>0.48\linewidth\relax
+%      \hbox to\linewidth{\box\LaTeXdemo@box\hss}^^A
+%        \begin{minipage}{\linewidth}
+%          \LaTeXdemo@input
+%        \end{minipage}
+%    \else
+%      \begin{minipage}{0.48\linewidth}
+%        \LaTeXdemo@input
+%      \end{minipage}
+%      \hfill
+%      \begin{minipage}{0.48\linewidth}
+%        \hbox to\linewidth{\box\LaTeXdemo@box\hss}^^A
+%      \end{minipage}
+%    \fi
+%  \end{center}
+%}
+%\LaTeXdemo@new{code only}{^^A
+%  \LaTeXdemo@common
+%}{^^A
+%}
+%
+%\makeatother
+% 
+%\title{^^A
+%  \textsf{bridge} --- Typesetting bridge-related stuff\thanks{^^A
+%    This file describes version \fileversion, last revised \filedate.^^A
+%  }^^A
+%}
+%\author{^^A
+%  Antony Lee\thanks{E-mail: anntzer.lee(at)gmail.com}^^A
+%}
+%\date{Released \filedate}
+%
+%\maketitle
+%
+%\changes{v0.1}{2012/03/18}{First public release}
+%
+%\tableofcontents
+%
+%\section{Commands}
+% Commands and environments are provided to typeset diagrams and auctions.
+% \bigskip
+%
+%\DescribeMacro{\spade}
+% A spade.
+%
+%\DescribeMacro{\heart}
+% A heart.
+%
+%\DescribeMacro{\diamond}
+% A diamond.
+%
+%\DescribeMacro{\club}
+% A club.
+% \bigskip
+%
+%\DescribeMacro{\board}
+% The |\board| command takes six arguments: \marg{top-left} (vulnerability and
+% dealer), \marg{top-right} (lead), \marg{north} (north hand), \marg{west}
+% (west hand), \marg{east} (east hand) and \marg{south} (south hand).  Each
+% hand should be given in comma-separated format.
+%\begin{LaTeXdemo}
+%  \board{None South}{}%
+%    {Axxx,Kxx,Qxx,Jxx}%
+%    {Kxx,Qxxx,Jxx,Axx}%
+%    {Qxx,Jxx,Axxx,Kxx}%
+%    {Jxx,Axx,Kxx,Qxxx}
+%\end{LaTeXdemo}
+%
+%\DescribeEnv{auction}
+% The environment |auction| takes an optional comma-separated argument list,
+% \oarg{bidder-names} (defaulting to |W,N,E,S|).  The contents of the
+% environment itself should be a comma-separated list of bids, and can contain
+% alert explanations introduced by the |\alerts| macro.  To start the auction
+% not in the first column, ``empty'' bids are input with |{}|.
+%\begin{LaTeXdemo}
+%  \begin{auction}
+%    {},{},1H,--,1S(1),--,2D,ap
+%    \alerts
+%    (1) Kaplan inversion.
+%  \end{auction}
+%\end{LaTeXdemo}
+%
+%\DescribeEnv{auctiontwo}
+% The environment |auctiontwo| is the same as |auction| but typesets its
+% contents in two columns (i.e. for uncontested auctions).  \oarg{bidder-names}
+% defaults to |S,N|.
+%\begin{LaTeXdemo}
+%  \begin{auctiontwo}[Me, You]
+%    1N,2H,2S,4S,ap
+%  \end{auctiontwo}
+%\end{LaTeXdemo}
+%
+%\section{Options}
+% Options can be passed when loading the package
+% (|\usepackage[key,key=val]{bridge}|) or with the |\bridgeset| command
+% (|\bridgeset{key,key=val}|).
+% \bigskip
+%
+%\DescribeMacro{color}
+% |color| selects how the suit symbols are colorized: the possible values are
+% |bw| (default), |two| and |four|.
+%\begin{LaTeXdemo}
+%  \bridgeset{color=bw}
+%  \spade\heart\diamond\club;
+%  \bridgeset{color=two}
+%  \spade\heart\diamond\club;
+%  \bridgeset{color=four}
+%  \spade\heart\diamond\club;
+%\end{LaTeXdemo}
+%
+%\DescribeMacro{shownames}
+% With |shownames=true| (the default), names (or N/S/E/W) are typeset in
+% diagrams and in auctions, otherwise they are omitted.
+%\begin{LaTeXdemo}
+%  \bridgeset{shownames}
+%  \begin{auction}
+%    1C,X,P,1H,ap
+%  \end{auction}
+%  \bigskip
+%  \bridgeset{shownames=false}
+%  \begin{auction}
+%    1C,X,P,1H,ap
+%  \end{auction}
+%\end{LaTeXdemo}
+%
+%\DescribeMacro{framedauction}
+% With |framedauction=true| (the default), a box is drawn around the auction
+% (not including the alerts).
+%\begin{LaTeXdemo}
+%  \bridgeset{framedauction}
+%  \begin{auction}
+%    1C,X(1),P,1H,ap
+%    \alerts
+%    (1) T/O
+%  \end{auction}
+%  \bigskip
+%  \bridgeset{framedauction=false}
+%  \begin{auction}
+%    1C,X(1),P,1H,ap
+%    \alerts
+%    (1) T/O
+%  \end{auction}
+%\end{LaTeXdemo}
+%
+%\DescribeMacro{vertauction}
+% With |vertauction=true| (the default), the alerts are typeset below the
+% auction.  Otherwise, they are typeset next to the auction; however if there
+% is not enough room the result may be ugly!
+%\begin{LaTeXdemo}
+%  \bridgeset{vertauction}
+%  \begin{auctiontwo}
+%    1C(1),1H,1N,ap
+%    \alerts
+%    (1) Polish
+%  \end{auctiontwo}
+%  \bigskip
+%  \bridgeset{vertauction=false}
+%  \begin{auctiontwo}
+%    1C(1),1H,1N,ap
+%    \alerts
+%    (1) Polish
+%  \end{auctiontwo}
+%\end{LaTeXdemo}
+%
+%\StopEventually{^^A
+%  \PrintChanges
+%  \PrintIndex
+%}
+%
+%\section{Implementation}
+%
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%    
+%\subsection{Dependencies}
+%    \begin{macrocode}
+\RequirePackage{booktabs} % for auction environment
+\RequirePackage{environ} % for \collect@body
+\RequirePackage{etoolbox} % for \ifnumequal
+\RequirePackage{pgfkeys}
+\RequirePackage{pgfopts}
+\RequirePackage{multicol}
+\RequirePackage[x11names]{xcolor}
+\RequirePackage{xstring} % for \StrBefore/Between/Behind
+
+%    \end{macrocode}
+%
+%\subsection{Options}
+%    \begin{macrocode}
+\def\bridgeset#1{\pgfqkeys{/bridge}{#1}}
+% color = bw | two | four
+\bridgeset{color/.is choice}
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\@varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\@vardiamond}{\mathalpha}{extraup}{87}
+\bridgeset{color/bw/.code={%
+  \def\spade{\textcolor{black}{\ensuremath{\spadesuit}}}%
+  \def\heart{\textcolor{black}{\ensuremath{\heartsuit}}}%
+  \def\diamond{\textcolor{black}{\ensuremath{\diamondsuit}}}%
+  \def\club{\textcolor{black}{\ensuremath{\clubsuit}}}}}
+\bridgeset{color/two/.code={%
+  \def\spade{\textcolor{black}{\ensuremath{\spadesuit}}}%
+  \def\heart{\textcolor{red}{\ensuremath{\@varheart}}}%
+  \def\diamond{\textcolor{red}{\ensuremath{\@vardiamond}}}%
+  \def\club{\textcolor{black}{\ensuremath{\clubsuit}}}}}
+\bridgeset{color/four/.code={%
+  \def\spade{\textcolor{blue}{\ensuremath{\spadesuit}}}%
+  \def\heart{\textcolor{red}{\ensuremath{\@varheart}}}%
+  \def\diamond{\textcolor{orange}{\ensuremath{\@vardiamond}}}%
+  \def\club{\textcolor{Green2}{\ensuremath{\clubsuit}}}}}
+\bridgeset{color=bw}
+% shownames = true | false
+\newif\ifshownames
+\bridgeset{shownames/.is if=shownames}
+\bridgeset{shownames=true}
+% framedauction = true | false
+\newif\ifframedauction
+\bridgeset{framedauction/.is if=framedauction}
+\bridgeset{framedauction=true}
+% vertauction = true | false
+\newif\ifvertauction
+\bridgeset{vertauction/.is if=vertauction}
+\bridgeset{vertauction=true}
+
+\newcommand*{\@decorateauction}[1]{%
+    \ifframedauction\framebox{#1}\else#1\fi%
+}
+
+\ProcessPgfOptions*
+
+%    \end{macrocode}
+%
+%\subsection{Board and hands}
+%    \begin{macrocode}
+% Print a hand over 4 lines
+\newcommand*{\@hand}[4]{%
+    \vtop{%
+        \hbox{\strut\spade\enspace#1}%
+        \hbox{\strut\heart\enspace#2}%
+        \hbox{\strut\diamond\enspace#3}%
+        \hbox{\strut\club\enspace#4}%
+    }%
+}%
+
+% User-friendly hand input
+\newcommand*{\hand}[1]{%
+    \@hand{\StrBefore{#1}{,}}{\StrBetween[1,2]{#1}{,}{,}}%
+    {\StrBetween[2,3]{#1}{,}{,}}{\StrBehind[3]{#1}{,}}%
+}%
+
+% Pretty-print vulnerability and dealer
+\newcommand*{\@extrainfo}[1]{%
+    \vtop{\raggedright\parindent=0pt\hsize=3\baselineskip #1}
+}%
+
+% Draw a table
+\newcommand*{\@tablebox}{%
+    \hbox{%
+        \vrule
+        \vbox to 3\baselineskip{%
+            \hrule\vfill%
+            \hbox to 3\baselineskip{\hfil\ifshownames N\fi\hfil}%
+            \hbox to 3\baselineskip{\hskip.5em\ifshownames W\fi\hfil%
+                                              \ifshownames E\fi\hskip.5em}%
+            \hbox to 3\baselineskip{\hfil\ifshownames S\fi\hfil}%
+            \vfill\hrule%
+        }\vrule%
+    }%
+}%
+
+% Draw a board with all the information
+\newcommand*{\board}[6]{%
+    \vtop{\halign{%
+        ## & ## & ## \cr
+        \@extrainfo{#1} & \hand{#3} & \@extrainfo{#2} \cr
+        $\vcenter{\hand{#6}}$ & $\vcenter{\@tablebox}$ & $\vcenter{\hand{#4}}$ \cr
+         & \hand{#5} & \cr
+    }}%
+}%
+
+%    \end{macrocode}
+%
+%\subsection{Bidding}
+%    \begin{macrocode}
+\def\@suitsymbol#1#2#3\stop{%
+    #1%
+    \if#2S\spade\else%
+    \if#2H\heart\else%
+    \if#2D\diamond\else%
+    \if#2C\club\else%
+    #2%
+    \fi\fi\fi\fi%
+    #3%
+}%
+
+\newcounter{col}%
+\newbool{empty}%
+
+\def\@printauctionfour#1\stop{%
+    \renewcommand*{\do}[1]{%
+        \ifnumequal{\value{col}}{4}{\setcounter{col}{0}\\}{}%
+        \expandafter\@suitsymbol##1{}{}\stop%
+        \stepcounter{col}%
+        \ifnumequal{\value{col}}{4}{}{&}%
+    }%
+    \@decorateauction{%
+        \begin{tabular}{cccc}
+            \ifshownames%
+            \setcounter{col}{0}%
+            \@for\bidder:=\@bidders\do{%
+                \stepcounter{col}%
+                \bidder%
+                \ifnumequal{\value{col}}{4}{}{&}%
+            }%
+            \\%
+            \midrule%
+            \fi%
+            \setcounter{col}{0}%
+            \expandafter\docsvlist\expandafter{#1}
+        \end{tabular}%
+    }%
+}%
+
+\def\@printauctiontwo#1\stop{%
+    \renewcommand*{\do}[1]{%
+        \ifnumequal{\value{col}}{2}{\setcounter{col}{0}\\}{}%
+        \expandafter\@suitsymbol##1{}{}\stop%
+        \stepcounter{col}%
+        \ifnumequal{\value{col}}{2}{}{&}%
+    }%
+    \@decorateauction{%
+        \begin{tabular}{cc}
+            \ifshownames%
+            \setcounter{col}{0}%
+            \@for\bidder:=\@bidders\do{%
+                \stepcounter{col}%
+                \bidder%
+                \ifnumequal{\value{col}}{2}{}{&}%
+            }%
+            \\%
+            \midrule%
+            \fi%
+            \setcounter{col}{0}%
+            \expandafter\docsvlist\expandafter{#1}
+        \end{tabular}%
+    }%
+}%
+
+\def\@splitauctionbody#1\@alerts#2\stop{%
+    \ifvertauction%
+        \expandafter\@printauction#1\stop\\%
+        \def\@alerts{}%
+        #2%
+    \else%
+        \begin{multicols}{2}%
+        \expandafter\@printauction#1\stop\\%
+        \def\@alerts{}%
+        #2%
+        \end{multicols}%
+    \fi%
+}%
+
+\def\alerts{\noexpand\@alerts}%
+
+\def\@auction#1{%
+    \edef\body{#1}
+    \vtop{%
+        \parindent=0pt%
+        \expandafter\@splitauctionbody\body\@alerts\stop%
+    }%
+}%
+
+\NewEnviron{auction}[1][W,N,E,S]{%
+    \def\@bidders{#1}%
+    \let\@printauction\@printauctionfour
+    \@auction{\BODY}%
+}{}%
+
+\NewEnviron{auctiontwo}[1][N,S]{%
+    \def\@bidders{#1}%
+    \let\@printauction\@printauctiontwo
+    \@auction{\BODY}%
+}{}%
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%\Finale
